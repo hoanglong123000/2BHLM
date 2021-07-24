@@ -50,7 +50,7 @@ namespace _2BHLM.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IDUserInfo,IDproduct,CustomerID,phonenum,address")] UserInfo userInfo)
+        public ActionResult Create([Bind(Include = "IDUserInfo,IDproduct,CustomerID,phonenum,address,Name")] UserInfo userInfo)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace _2BHLM.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IDUserInfo,IDproduct,CustomerID,phonenum,address")] UserInfo userInfo)
+        public ActionResult Edit([Bind(Include = "IDUserInfo,IDproduct,CustomerID,phonenum,address,Name")] UserInfo userInfo)
         {
             if (ModelState.IsValid)
             {

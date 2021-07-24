@@ -27,7 +27,9 @@ namespace QLST.Models.MarketEntities
 
         [DisplayName("Địa chỉ: ")]
         public string address { get; set; }
-       
+        
+        [DisplayName("Họ và tên: ")]
+        public string Name { get; set; } 
 
     }
 }
