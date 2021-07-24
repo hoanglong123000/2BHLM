@@ -22,6 +22,11 @@ namespace QLST.Models.MarketEntities
         public string CustomerID { get; set; }
         public ApplicationUser Customer { get; set; }
 
+        [DisplayName("Số điện thoại: ")]
+        public string phonenum { get; set; }
+
+        [DisplayName("Địa chỉ: ")]
+        public string address { get; set; }
        
 
     }
