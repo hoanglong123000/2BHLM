@@ -11,14 +11,16 @@ using _2BHLM.Models;
 
 namespace _2BHLM.Areas.Admin.Controllers
 {
+    [Authorize]
     public class ProductsController : Controller
     {
+        
         private ApplicationDbContext db = new ApplicationDbContext();
-
+        
         // GET: Admin/Products
         public ActionResult Index()
         {
-            var products = db.Products.Include(p => p.DetailReceipt).Include(p => p.StoredCar);
+            var products = db.Products.Include(p => p.DetailReceipt);
             return View(products.ToList());
         }
 
@@ -41,7 +43,6 @@ namespace _2BHLM.Areas.Admin.Controllers
         public ActionResult Create()
         {
             ViewBag.IDReceipt = new SelectList(db.DetailReceipts, "IDReceipt", "IDReceipt");
-            ViewBag.Idstore = new SelectList(db.StoredCars, "Idstore", "Titleofproduct");
             return View();
         }
 
@@ -50,7 +51,7 @@ namespace _2BHLM.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IDproduct,Title,Price,Description,IDReceipt,Idstore")] Product product)
+        public ActionResult Create([Bind(Include = "IDproduct,Title,Price,Description,IDReceipt")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -60,7 +61,6 @@ namespace _2BHLM.Areas.Admin.Controllers
             }
 
             ViewBag.IDReceipt = new SelectList(db.DetailReceipts, "IDReceipt", "IDReceipt", product.IDReceipt);
-            ViewBag.Idstore = new SelectList(db.StoredCars, "Idstore", "Titleofproduct", product.Idstore);
             return View(product);
         }
 
@@ -77,7 +77,6 @@ namespace _2BHLM.Areas.Admin.Controllers
                 return HttpNotFound();
             }
             ViewBag.IDReceipt = new SelectList(db.DetailReceipts, "IDReceipt", "IDReceipt", product.IDReceipt);
-            ViewBag.Idstore = new SelectList(db.StoredCars, "Idstore", "Titleofproduct", product.Idstore);
             return View(product);
         }
 
@@ -86,7 +85,7 @@ namespace _2BHLM.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IDproduct,Title,Price,Description,IDReceipt,Idstore")] Product product)
+        public ActionResult Edit([Bind(Include = "IDproduct,Title,Price,Description,IDReceipt")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +94,6 @@ namespace _2BHLM.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.IDReceipt = new SelectList(db.DetailReceipts, "IDReceipt", "IDReceipt", product.IDReceipt);
-            ViewBag.Idstore = new SelectList(db.StoredCars, "Idstore", "Titleofproduct", product.Idstore);
             return View(product);
         }
 
