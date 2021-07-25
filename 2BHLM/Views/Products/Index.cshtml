@@ -1,15 +1,13 @@
 ﻿@model IEnumerable<QLST.Models.MarketEntities.Product>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "SIÊU THỊ 2BHL";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>GIAN HÀNG 2BHL</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -48,9 +46,9 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IDproduct }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IDproduct }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IDproduct })
+           
+            @Html.ActionLink("XEM HÀNG HÓA", "Details", new { id=item.IDproduct }) |
+           
         </td>
     </tr>
 }

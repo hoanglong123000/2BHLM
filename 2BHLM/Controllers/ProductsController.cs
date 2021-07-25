@@ -9,20 +9,20 @@ using System.Web.Mvc;
 using QLST.Models.MarketEntities;
 using _2BHLM.Models;
 
-namespace _2BHLM.Areas.Admin.Controllers
+namespace _2BHLM.Controllers
 {
     public class ProductsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Admin/Products
+        // GET: Products
         public ActionResult Index()
         {
             var products = db.Products.Include(p => p.DetailReceipt).Include(p => p.StoredCar);
             return View(products.ToList());
         }
 
-        // GET: Admin/Products/Details/5
+        // GET: Products/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,7 +37,7 @@ namespace _2BHLM.Areas.Admin.Controllers
             return View(product);
         }
 
-        // GET: Admin/Products/Create
+        // GET: Products/Create
         public ActionResult Create()
         {
             ViewBag.IDReceipt = new SelectList(db.DetailReceipts, "IDReceipt", "IDReceipt");
@@ -45,7 +45,7 @@ namespace _2BHLM.Areas.Admin.Controllers
             return View();
         }
 
-        // POST: Admin/Products/Create
+        // POST: Products/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -64,7 +64,7 @@ namespace _2BHLM.Areas.Admin.Controllers
             return View(product);
         }
 
-        // GET: Admin/Products/Edit/5
+        // GET: Products/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -81,7 +81,7 @@ namespace _2BHLM.Areas.Admin.Controllers
             return View(product);
         }
 
-        // POST: Admin/Products/Edit/5
+        // POST: Products/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -99,7 +99,7 @@ namespace _2BHLM.Areas.Admin.Controllers
             return View(product);
         }
 
-        // GET: Admin/Products/Delete/5
+        // GET: Products/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -114,7 +114,7 @@ namespace _2BHLM.Areas.Admin.Controllers
             return View(product);
         }
 
-        // POST: Admin/Products/Delete/5
+        // POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

@@ -49,5 +49,7 @@ namespace _2BHLM.Models
 
             base.OnModelCreating(modelBuilder);
         }
+
+        public System.Data.Entity.DbSet<_2BHLM.Models.MarketEntities.StoredCar> StoredCars { get; set; }
     }
 }

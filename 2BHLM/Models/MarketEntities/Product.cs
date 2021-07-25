@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _2BHLM.Models.MarketEntities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -27,6 +28,10 @@ namespace QLST.Models.MarketEntities
         [ForeignKey("DetailReceipt")]
         public int IDReceipt { get; set; }
         public DetailReceipt DetailReceipt { get; set; }
+
+        [ForeignKey("StoredCar")]
+        public int Idstore { get; set;  }
+        public StoredCar StoredCar { get; set; }
 
         public ICollection<UserInfo> UserInfos { get; set; }
     }

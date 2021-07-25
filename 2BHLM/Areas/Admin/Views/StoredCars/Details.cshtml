@@ -1,0 +1,35 @@
+﻿@model _2BHLM.Models.MarketEntities.StoredCar
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>StoredCar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Titleofproduct)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Titleofproduct)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AmmountofProduct)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmmountofProduct)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Idstore }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
